@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>CRRT 장비 점검 이력 검색 · Vantive</title>
+<title>CRRT 장비 점검 KB · Vantive</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -387,10 +387,8 @@ mark { background: rgba(114,37,107,0.13); color: var(--plum); border-radius: 2px
 .bnav {
   position: fixed; bottom: 0; left: 0; right: 0;
   height: calc(var(--nav-h) + env(safe-area-inset-bottom,0px));
-  background: rgba(255,250,235,0.94);
-  backdrop-filter: saturate(200%) blur(16px);
-  -webkit-backdrop-filter: saturate(200%) blur(16px);
-  border-top: 1.5px solid rgba(114,37,107,0.15);
+  background: #6CA07A;
+  border-top: 1.5px solid rgba(255,250,235,0.25);
   display: flex; align-items: flex-start; padding-top: 8px; z-index: 200;
 }
 .bnav-item {
@@ -399,13 +397,13 @@ mark { background: rgba(114,37,107,0.13); color: var(--plum); border-radius: 2px
   font-family: inherit; -webkit-tap-highlight-color: transparent;
 }
 .bnav-svg {
-  width: 24px; height: 24px; color: var(--text3);
+  width: 24px; height: 24px; color: rgba(255,250,235,0.65);
   transition: color .15s, transform .18s cubic-bezier(.34,1.56,.64,1);
 }
-.bnav-label { font-size: 10px; font-weight: 600; color: var(--text3); font-family: inherit; }
+.bnav-label { font-size: 10px; font-weight: 600; color: rgba(255,250,235,0.65); font-family: inherit; }
 
-.bnav-item.on .bnav-svg   { color: var(--plum); transform: scale(1.12); }
-.bnav-item.on .bnav-label { color: var(--plum); font-weight: 800; }
+.bnav-item.on .bnav-svg   { color: #FFFAEB; transform: scale(1.12); }
+.bnav-item.on .bnav-label { color: #FFFAEB; font-weight: 800; }
 .bnav-item:active .bnav-svg { transform: scale(0.88); }
 
 #tabSearch { display: none; }
@@ -417,30 +415,30 @@ mark { background: rgba(114,37,107,0.13); color: var(--plum); border-radius: 2px
 <div class="header">
 
   <!-- V Watermark SVG -->
-  <!-- Watermark: Vantive V mark geometry (evenodd diamond cutout), layered -->
+  <!-- Watermark: Vantive V mark (33% arm thickness + diamond cutout), layered -->
   <svg class="header-wm" width="200" height="180" viewBox="0 0 200 180" fill="none">
     <!-- Large V (outermost) -->
     <path fill-rule="evenodd" fill="#FFFAEB" fill-opacity="0.07"
-      d="M0,0 L100,180 L200,0 L144,0 L100,110 L56,0 Z
-         M100,110 L126,144 L100,180 L74,144 Z"/>
-    <!-- Medium V (middle layer) -->
+      d="M0,0 L100,180 L200,0 L134,0 L100,104 L66,0 Z
+         M100,104 L130,140 L100,180 L70,140 Z"/>
+    <!-- Medium V -->
     <path fill-rule="evenodd" fill="#FFFAEB" fill-opacity="0.05"
-      d="M30,0 L100,126 L170,0 L150,0 L100,88 L50,0 Z
-         M100,88 L114,110 L100,126 L86,110 Z"/>
-    <!-- Small V (inner) -->
+      d="M34,0 L100,126 L166,0 L146,0 L100,82 L54,0 Z
+         M100,82 L120,108 L100,126 L80,108 Z"/>
+    <!-- Small V -->
     <path fill-rule="evenodd" fill="#FFFAEB" fill-opacity="0.04"
-      d="M56,0 L100,76 L144,0 L130,0 L100,53 L70,0 Z
-         M100,53 L109,66 L100,76 L91,66 Z"/>
+      d="M60,0 L100,72 L140,0 L126,0 L100,48 L74,0 Z
+         M100,48 L113,62 L100,72 L87,62 Z"/>
   </svg>
 
   <div class="header-top">
     <!-- Vantive Logo -->
     <div class="vantive-logo">
-      <!-- Vantive V Mark: two thick bold arms + diamond counter cutout (evenodd) -->
-      <svg width="36" height="32" viewBox="0 0 100 90" fill="none">
+      <!-- Vantive V Mark: bold thick arms (33%) + prominent diamond cutout (evenodd) -->
+      <svg width="38" height="34" viewBox="0 0 100 90" fill="none">
         <path fill-rule="evenodd" fill="#FFFAEB"
-          d="M0,0 L50,90 L100,0 L72,0 L50,55 L28,0 Z
-             M50,55 L63,72 L50,90 L37,72 Z"/>
+          d="M0,0 L50,90 L100,0 L67,0 L50,52 L33,0 Z
+             M50,52 L65,70 L50,90 L35,70 Z"/>
       </svg>
       <div class="logo-text">
         <span class="wordmark">antive</span>
